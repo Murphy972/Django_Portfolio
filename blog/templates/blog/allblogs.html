@@ -54,45 +54,33 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <a class="nav-link" aria-current="page" href="#">Twitter</a>
-            <a class="nav-link active" href="#">Resume</a>
-            <a class="nav-link" href="blog/">Blog</a>
+            <a class="nav-link" href="home/">Resume</a>
+            <a class="nav-link active" href="#">Blog</a>
           </div>
         </div>
       </div>
     </nav>
 </header>
-<main>
-
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Hi Im Matt</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Email Me</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="album py-5 bg-light">
+    <main>
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                {% for job in jobs.all %}
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img class="card-img-top" src="{{ job.image.url }}">
-                        <div class="card-body">
-                            <p class="card-text">{{ job.summary }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+            <h1 class="text-center pt-3">Blog</h1>
+            <br/>
+            <br/>
+            <h2>Latest Posts</h2>
+            <hr/>
         </div>
-    </div>
-
-</main>
+        <div class="container">
+            {% for blog in blogs.all %}
+                <div class="container border">
+                    <h3>{{ blog.title }}</h3>
+                    <p>{{ blog.summary }}</p>
+                    <br/>
+                    <img src="{{ blog.image.url }}" height=200 />
+                    <h6>{{ blog.pub_date_pretty }}</h6>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
 
 <footer class="text-muted py-5">
     <div class="container text-center">
